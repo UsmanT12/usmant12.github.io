@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why JSON Matters</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <h1 class="logo"><a href="../index.html">personal website</a></h1>
+      <ul class="nav-list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../portfolio.html">Portfolio</a></li>
+        <li><a href="../resume.html">Resume</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <article class="blog-post">
+        <h1 class="page-title">Why JSON Matters</h1>
+        <p class="blog-date"><em>Posted on October 26, 2025</em></p>
+
+        <img
+          src="https://via.placeholder.com/600x400/003366/ffffff?text=JSON"
+          alt="JSON example graphic"
+          class="blog-post-image"
+        />
+
+        <div class="blog-content">
+          <h2>Introduction to JSON</h2>
+          <p>
+            JSON (JavaScript Object Notation) is a lightweight data-interchange
+            format that's easy for humans to read and write, and easy for
+            machines to parse and generate. It has become the de facto standard
+            for data exchange on the web.
+          </p>
+
+          <h2>What Makes JSON Special?</h2>
+          <p>
+            JSON has several advantages that make it the preferred choice for
+            data exchange in modern web applications:
+          </p>
+          <ul>
+            <li>
+              <strong>Language Independent:</strong> While based on JavaScript,
+              JSON is supported by virtually every programming language
+            </li>
+            <li>
+              <strong>Human Readable:</strong> Easy to understand and debug
+            </li>
+            <li>
+              <strong>Lightweight:</strong> Minimal syntax overhead compared to
+              XML
+            </li>
+            <li>
+              <strong>Native JavaScript Support:</strong> Easily parsed and
+              stringified in JavaScript
+            </li>
+          </ul>
+
+          <h2>JSON Structure</h2>
+          <p>JSON data is represented in key-value pairs. Here's an example:</p>
+          <pre><code>{
+  "name": "Usman Tahir",
+  "major": "Computer Science",
+  "university": "Cal Poly SLO",
+  "skills": ["TypeScript", "Python", "React"],
+  "projects": {
+    "personal_website": {
+      "url": "usmant12.github.io",
+      "technologies": ["HTML", "CSS", "TypeScript"]
+    }
+  }
+}</code></pre>
+
+          <h2>JSON in Web Development</h2>
+          <p>
+            JSON is everywhere in modern web development. Here are some common
+            use cases:
+          </p>
+          <ul>
+            <li>
+              <strong>API Responses:</strong> Most REST APIs return data in JSON
+              format
+            </li>
+            <li>
+              <strong>Configuration Files:</strong> package.json, tsconfig.json,
+              etc.
+            </li>
+            <li>
+              <strong>Data Storage:</strong> NoSQL databases like MongoDB use
+              JSON-like documents
+            </li>
+            <li>
+              <strong>State Management:</strong> Storing and transferring
+              application state
+            </li>
+          </ul>
+
+          <h2>Working with JSON in JavaScript</h2>
+          <p>JavaScript provides built-in methods to work with JSON:</p>
+          <pre><code>// Converting JavaScript object to JSON string
+const user = { name: "Usman", age: 21 };
+const jsonString = JSON.stringify(user);
+
+// Parsing JSON string to JavaScript object
+const jsonData = '{"name":"Usman","age":21}';
+const userObject = JSON.parse(jsonData);</code></pre>
+
+          <h2>Best Practices</h2>
+          <p>When working with JSON, keep these tips in mind:</p>
+          <ul>
+            <li>Always validate JSON data before parsing</li>
+            <li>Use proper error handling with try-catch blocks</li>
+            <li>Keep your JSON structure simple and consistent</li>
+            <li>Use meaningful key names that describe the data</li>
+          </ul>
+
+          <h2>Conclusion</h2>
+          <p>
+            JSON has revolutionized how we exchange data on the web. Its
+            simplicity, versatility, and wide support make it an essential tool
+            in every web developer's toolkit. Understanding JSON is fundamental
+            to modern web development, whether you're building APIs, working
+            with databases, or creating dynamic web applications.
+          </p>
+        </div>
+
+        <a href="../blog.html" class="back-link">← Back to Blog</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      © 2025 My Personal Website | All Rights Reserved
+    </footer>
+  </body>
+</html>

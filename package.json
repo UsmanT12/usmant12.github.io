@@ -1,0 +1,23 @@
+{
+  "name": "usmant12.github.io",
+  "version": "1.0.0",
+  "description": "This is my personal website built using the **Hack4Impact Cal Poly Starter Pack**!   It’s a simple multi-page site built entirely with **semantic HTML** and **CSS**, featuring a home page, blog, portfolio, resume, and contact form.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usmant12/usmant12.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/usmant12/usmant12.github.io/issues"
+  },
+  "homepage": "https://github.com/usmant12/usmant12.github.io#readme",
+  "dependencies": {
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding TypeScript</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <h1 class="logo"><a href="../index.html">personal website</a></h1>
+      <ul class="nav-list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../portfolio.html">Portfolio</a></li>
+        <li><a href="../resume.html">Resume</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <article class="blog-post">
+        <h1 class="page-title">Understanding TypeScript</h1>
+        <p class="blog-date"><em>Posted on October 26, 2025</em></p>
+
+        <img
+          src="https://via.placeholder.com/600x400/003366/ffffff?text=TypeScript"
+          alt="TypeScript logo"
+          class="blog-post-image"
+        />
+
+        <div class="blog-content">
+          <h2>What is TypeScript?</h2>
+          <p>
+            TypeScript is a strongly typed programming language that builds on
+            JavaScript, giving you better tooling at any scale. It's developed
+            and maintained by Microsoft and has gained massive popularity in the
+            web development community.
+          </p>
+
+          <h2>Why Use TypeScript?</h2>
+          <p>
+            TypeScript adds optional static typing to JavaScript. This means you
+            can catch errors during development rather than at runtime. Here are
+            some key benefits:
+          </p>
+          <ul>
+            <li>
+              <strong>Type Safety:</strong> Catch type-related errors before
+              your code runs
+            </li>
+            <li>
+              <strong>Better IDE Support:</strong> Enhanced autocomplete and
+              IntelliSense
+            </li>
+            <li>
+              <strong>Self-Documenting:</strong> Types serve as inline
+              documentation
+            </li>
+            <li>
+              <strong>Scalability:</strong> Makes large codebases more
+              manageable
+            </li>
+          </ul>
+
+          <h2>Getting Started</h2>
+          <p>
+            To get started with TypeScript, you first need to install Node.js,
+            then you can install TypeScript globally:
+          </p>
+          <pre><code>npm install -g typescript</code></pre>
+
+          <p>
+            Once installed, you can create a TypeScript file with a
+            <code>.ts</code> extension and compile it to JavaScript using:
+          </p>
+          <pre><code>tsc filename.ts</code></pre>
+
+          <h2>Basic Example</h2>
+          <p>Here's a simple example of TypeScript in action:</p>
+          <pre><code>function greet(name: string): string {
+  return `Hello, ${name}!`;
+}
+
+const message = greet("World");
+console.log(message); // Output: Hello, World!</code></pre>
+
+          <p>
+            Notice how we specify that the <code>name</code> parameter must be a
+            string, and the function returns a string. If you try to pass a
+            number instead, TypeScript will catch the error at compile time!
+          </p>
+
+          <h2>Conclusion</h2>
+          <p>
+            TypeScript is a powerful tool that enhances JavaScript development.
+            Whether you're building a small project or a large-scale
+            application, TypeScript can help you write more reliable and
+            maintainable code. Give it a try in your next project!
+          </p>
+        </div>
+
+        <a href="../blog.html" class="back-link">← Back to Blog</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      © 2025 My Personal Website | All Rights Reserved
+    </footer>
+  </body>
+</html>
