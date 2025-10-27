@@ -1,0 +1,345 @@
+/* =============== GLOBAL STYLES =============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  background-color: #fafafa;
+  color: #222;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* =============== NAVIGATION BAR =============== */
+.navbar {
+  background-color: #003366;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+}
+
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+  color: #ffd700;
+}
+
+/* =============== MAIN CONTENT =============== */
+main {
+  padding: 2rem 8%;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #003366;
+  padding-bottom: 0.5rem;
+}
+
+/* =============== SECTIONS =============== */
+.section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  color: #003366;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid #003366;
+  padding-left: 0.5rem;
+}
+
+/* =============== ABOUT SECTION (Index Page) =============== */
+.about {
+  overflow: auto; /* Clear float */
+}
+
+.about-image {
+  float: left;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-image img {
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+
+.entry {
+  margin-bottom: 1rem;
+}
+
+.entry-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.entry-info {
+  font-style: italic;
+  margin-bottom: 0.25rem;
+  color: #444;
+}
+
+.entry-description {
+  margin-left: 1.2rem;
+  list-style: disc;
+}
+
+.entry-description li {
+  margin-bottom: 0.25rem;
+}
+
+/* =============== RESUME HEADER =============== */
+.resume-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.resume-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.25rem;
+}
+
+.resume-contact {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.resume-contact a {
+  color: #0055aa;
+  text-decoration: none;
+}
+
+.resume-contact a:hover {
+  text-decoration: underline;
+}
+
+.resume-download {
+  display: block;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #0055aa;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.resume-download:hover {
+  text-decoration: underline;
+}
+
+/* =============== PORTFOLIO PAGE =============== */
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.project img {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 0.75rem;
+}
+
+.project-details {
+  text-align: center;
+}
+
+.project-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-details a {
+  text-decoration: none;
+  color: #003366;
+  font-weight: 600;
+}
+
+.project-details a:hover {
+  color: #0077cc;
+}
+
+/* =============== CONTACT PAGE =============== */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 0.25rem;
+}
+
+input,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input[type="submit"] {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0055aa;
+}
+
+/* =============== BLOG PAGE =============== */
+.blog-post {
+  margin-bottom: 2rem;
+}
+
+.blog-post h3 {
+  color: #003366;
+  margin-bottom: 0.25rem;
+}
+
+.blog-post p {
+  margin-bottom: 0.5rem;
+}
+
+/* =============== FOOTER =============== */
+.footer {
+  background-color: #003366;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* =============== LINKS & HOVER STATES =============== */
+a {
+  color: #003366;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #0077cc;
+}
+
+/* =============== RESPONSIVE DESIGN =============== */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .project {
+    flex-direction: column;
+  }
+
+  main {
+    padding: 1.5rem 5%;
+  }
+}
+
+/* =============== PRINT OPTIMIZATION =============== */
+@media print {
+  nav,
+  .footer,
+  .resume-download {
+    display: none;
+  }
+
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .resume-header,
+  .section {
+    page-break-inside: avoid;
+  }
+
+  .section-title {
+    color: #000;
+    border: none;
+  }
+}
+
+/* =============== ADDITIONAL STYLES FOR BLOG PAGE =============== */
+
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.blog-entry {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+}
+
+.blog-entry img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+}
