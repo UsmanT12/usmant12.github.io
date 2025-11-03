@@ -176,6 +176,13 @@ main {
   flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
+  text-align: center;
+}
+
+.project a {
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .project img {
@@ -184,7 +191,8 @@ main {
   height: auto;
   border-radius: 10px;
   border: 1px solid #ccc;
-  margin-bottom: 0.75rem;
+  margin: 0 auto 0.75rem auto;
+  display: block;
 }
 
 .project-details {
@@ -356,10 +364,13 @@ a:hover {
 }
 
 .blog-entry img {
-  width: 100%;
-  max-width: 600px;
+  width: 60%;
+  max-width: 220px;
   border-radius: 8px;
   margin: 1rem 0;
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .blog-link {
