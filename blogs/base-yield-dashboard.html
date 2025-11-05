@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base Yield Dashboard</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <h1 class="logo"><a href="../index.html">personal website</a></h1>
+      <ul class="nav-list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../portfolio.html">Portfolio</a></li>
+        <li><a href="../resume.html">Resume</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <article class="blog-post">
+        <h1 class="page-title">Base Yield Dashboard</h1>
+        <p class="blog-date">
+          <em>Part of Blockchain Excursion | November 5, 2025</em>
+        </p>
+
+        <div class="github-badge">
+          <a
+            href="https://github.com/UsmanT12/base-yield-dashboard"
+            target="_blank"
+            class="github-link-large"
+            >View Project on GitHub ↗</a
+          >
+        </div>
+
+        <div class="blog-content">
+          <h2>What It Does</h2>
+          <p>
+            A comprehensive portfolio dashboard specifically designed for the
+            Base network. The app allows users to connect their wallet and view:
+          </p>
+          <ul>
+            <li>
+              Token balances (ERC-20 tokens like ETH, USDC, AERO) with real-time
+              values
+            </li>
+            <li>Lending and borrowing positions across DeFi protocols</li>
+            <li>Health factors (risk indicators for liquidation)</li>
+            <li>Yield earnings from various DeFi positions</li>
+            <li>
+              Unified interface consolidating multiple protocol interactions
+            </li>
+          </ul>
+
+          <p>
+            The dashboard is optimized for Base Layer 2, providing responsive
+            design for both desktop and mobile devices.
+          </p>
+
+          <h2>Key Features</h2>
+          <ul>
+            <li>
+              <strong>Wallet Integration:</strong> Connect via MetaMask or
+              WalletConnect for seamless access
+            </li>
+            <li>
+              <strong>Multi-Token Support:</strong> View balances for all ERC-20
+              tokens in your wallet
+            </li>
+            <li>
+              <strong>Protocol Integration:</strong> Direct integration with
+              lending protocols like Seamless
+            </li>
+            <li>
+              <strong>Risk Monitoring:</strong> Real-time health factor tracking
+              to prevent liquidation
+            </li>
+            <li>
+              <strong>Dual Network:</strong> Supports both Base Mainnet and
+              Sepolia Testnet
+            </li>
+            <li>
+              <strong>Direct On-Chain Reads:</strong> No intermediary APIs for
+              core functionality
+            </li>
+          </ul>
+
+          <h2>Tech Stack</h2>
+          <h3>Frontend Framework</h3>
+          <ul>
+            <li>
+              <strong>Next.js 14:</strong> Modern React framework with App
+              Router
+            </li>
+            <li>
+              <strong>TypeScript:</strong> Type-safe development throughout
+            </li>
+            <li>
+              <strong>Tailwind CSS:</strong> Responsive utility-first styling
+            </li>
+          </ul>
+
+          <h3>Blockchain & Wallet Integration</h3>
+          <ul>
+            <li>
+              <strong>wagmi:</strong> React hooks for Ethereum wallet connection
+              and interaction
+            </li>
+            <li>
+              <strong>ethers.js:</strong> Library for contract interactions and
+              blockchain reads
+            </li>
+            <li>
+              <strong>RainbowKit:</strong> Beautiful wallet connection UI
+              component
+            </li>
+          </ul>
+
+          <h3>Networks</h3>
+          <ul>
+            <li>Base Mainnet (primary production network)</li>
+            <li>Base Sepolia Testnet (for development and testing)</li>
+          </ul>
+
+          <h2>Project Structure</h2>
+          <h3>Pages Directory</h3>
+          <ul>
+            <li>
+              <code>index.tsx</code> - Main dashboard displaying all portfolio
+              data
+            </li>
+            <li>
+              <code>_app.tsx</code> - App configuration with wagmi and
+              RainbowKit providers
+            </li>
+          </ul>
+
+          <h3>Components Directory</h3>
+          <ul>
+            <li>
+              <code>WalletConnect.tsx</code> - Wallet connection UI with
+              multiple provider support
+            </li>
+            <li>
+              <code>TokenCard.tsx</code> - Individual token balance display with
+              icons
+            </li>
+            <li>
+              <code>YieldCard.tsx</code> - Lending/borrowing position card with
+              APY and risk metrics
+            </li>
+          </ul>
+
+          <h3>Utils Directory</h3>
+          <ul>
+            <li>
+              <code>config.ts</code> - Network configurations and contract
+              addresses
+            </li>
+            <li>
+              <code>fetchBalances.ts</code> - Utility functions for fetching
+              token balances
+            </li>
+            <li>
+              <code>seamless.ts</code> - Integration with Seamless Protocol for
+              lending/borrowing data
+            </li>
+          </ul>
+
+          <h3>ABIs Directory</h3>
+          <ul>
+            <li><code>erc20.ts</code> - Standard ERC-20 token contract ABI</li>
+            <li>
+              <code>seamless.ts</code> - Seamless Protocol contract ABIs for
+              lending pools
+            </li>
+          </ul>
+
+          <h2>Architecture & Data Flow</h2>
+          <h3>1. Wallet Connection</h3>
+          <p>
+            User connects wallet using RainbowKit, which supports MetaMask,
+            WalletConnect, Coinbase Wallet, and more. The connection state is
+            managed by wagmi hooks.
+          </p>
+
+          <h3>2. Balance Fetching</h3>
+          <p>
+            Once connected, the app reads token balances directly from smart
+            contracts using ethers.js:
+          </p>
+          <ul>
+            <li>Fetches native ETH balance from the network</li>
+            <li>Queries ERC-20 contracts for token balances</li>
+            <li>Aggregates all balances for display</li>
+          </ul>
+
+          <h3>3. Protocol Position Reading</h3>
+          <p>For integrated protocols (like Seamless), the app:</p>
+          <ul>
+            <li>Calls lending pool contracts to get supply positions</li>
+            <li>Fetches borrow positions and outstanding debt</li>
+            <li>Calculates health factors using protocol formulas</li>
+            <li>Retrieves current APY rates for both supply and borrow</li>
+          </ul>
+
+          <h3>4. Real-time Updates</h3>
+          <p>
+            The dashboard uses React hooks to poll for updates periodically,
+            ensuring users see current balances and positions. Critical metrics
+            like health factors update more frequently.
+          </p>
+
+          <h2>Environment Configuration</h2>
+          <p>
+            The project includes <code>.env.example</code> with required
+            environment variables:
+          </p>
+          <ul>
+            <li>
+              <code>NEXT_PUBLIC_BASE_RPC_URL</code> - RPC endpoint for Base
+              network
+            </li>
+            <li>
+              <code>NEXT_PUBLIC_ALCHEMY_API_KEY</code> - Alchemy API key for
+              enhanced RPC access
+            </li>
+            <li>
+              <code>NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID</code> - WalletConnect
+              project ID
+            </li>
+          </ul>
+
+          <h2>Current Features & Limitations</h2>
+          <h3>Implemented ✅</h3>
+          <ul>
+            <li>Wallet connection with multiple providers</li>
+            <li>Token balance display for ERC-20 tokens</li>
+            <li>Lending/borrowing position tracking</li>
+            <li>Health factor monitoring</li>
+            <li>Yield rate display (APY)</li>
+            <li>Network switching (Mainnet/Testnet)</li>
+            <li>Responsive mobile design</li>
+          </ul>
+
+          <h3>Planned Enhancements 🚧</h3>
+          <ul>
+            <li>
+              <strong>USD Price Conversion:</strong> Show token values in USD
+              using oracle price feeds
+            </li>
+            <li>
+              <strong>LP Position Tracking:</strong> Monitor liquidity pool
+              positions and impermanent loss
+            </li>
+            <li>
+              <strong>Transaction History:</strong> Display recent transactions
+              and interactions
+            </li>
+            <li>
+              <strong>Portfolio Analytics:</strong> Charts showing performance
+              over time
+            </li>
+            <li>
+              <strong>Multi-Protocol Support:</strong> Expand beyond Seamless to
+              other Base DeFi protocols
+            </li>
+            <li>
+              <strong>Notifications:</strong> Alerts for low health factors or
+              significant changes
+            </li>
+          </ul>
+
+          <h2>Lay-Person Explanation</h2>
+          <p>
+            This is your personal "DeFi dashboard" specifically for Base. Think
+            of it like your online banking app, but for cryptocurrency and
+            decentralized finance:
+          </p>
+
+          <ul>
+            <li>
+              <strong>Connect your wallet:</strong> Like logging into your bank
+              account
+            </li>
+            <li>
+              <strong>See your holdings:</strong> All your crypto tokens in one
+              place
+            </li>
+            <li>
+              <strong>Check your investments:</strong> What you've staked or
+              borrowed
+            </li>
+            <li>
+              <strong>Monitor your earnings:</strong> How much yield you're
+              generating
+            </li>
+            <li>
+              <strong>Watch your risk:</strong> Indicators that warn if
+              positions are at risk
+            </li>
+          </ul>
+
+          <p>
+            Instead of having to visit many different DeFi apps and remembering
+            all your positions, you get one unified control panel. It reads data
+            directly from the blockchain, so there's no middleman — it's just
+            you and the blockchain.
+          </p>
+
+          <h2>Technical Deep Dive</h2>
+          <h3>Smart Contract Interaction</h3>
+          <p>
+            The dashboard interacts with smart contracts using ethers.js. For
+            example, fetching an ERC-20 balance:
+          </p>
+          <pre><code>const tokenContract = new ethers.Contract(
+  tokenAddress,
+  erc20ABI,
+  provider
+);
+const balance = await tokenContract.balanceOf(userAddress);</code></pre>
+
+          <h3>Health Factor Calculation</h3>
+          <p>
+            Health factor is calculated based on collateral value vs. borrowed
+            value:
+          </p>
+          <pre><code>healthFactor = (collateralValue × liquidationThreshold) / borrowedValue</code></pre>
+          <p>
+            A health factor below 1.0 indicates liquidation risk. The dashboard
+            highlights these situations with warning colors.
+          </p>
+
+          <h3>Wagmi Hook Usage</h3>
+          <p>React hooks from wagmi simplify wallet interactions:</p>
+          <pre><code>const { address, isConnected } = useAccount();
+const { data: balance } = useBalance({ address });</code></pre>
+
+          <h2>Why This Project Matters</h2>
+          <ul>
+            <li>
+              <strong>Wallet Integration:</strong> Shows mastery of Web3 wallet
+              connection patterns
+            </li>
+            <li>
+              <strong>Contract Interaction:</strong> Demonstrates ability to
+              read from smart contracts
+            </li>
+            <li>
+              <strong>DeFi Understanding:</strong> Deep knowledge of lending,
+              borrowing, yield, and risk
+            </li>
+            <li>
+              <strong>User Experience:</strong> Creates intuitive interface for
+              complex financial data
+            </li>
+            <li>
+              <strong>Base Specialization:</strong> Optimized for Layer 2
+              performance and cost efficiency
+            </li>
+            <li>
+              <strong>Production Ready:</strong> Handles edge cases, errors, and
+              network switching
+            </li>
+          </ul>
+
+          <h2>Use Cases</h2>
+          <ul>
+            <li>
+              <strong>Active DeFi Users:</strong> Track all positions across
+              protocols in one place
+            </li>
+            <li>
+              <strong>Risk Management:</strong> Monitor health factors to
+              prevent liquidations
+            </li>
+            <li>
+              <strong>Yield Optimization:</strong> Compare APYs across different
+              protocols
+            </li>
+            <li>
+              <strong>Portfolio Tracking:</strong> See total portfolio value and
+              allocation
+            </li>
+            <li>
+              <strong>Mobile Access:</strong> Check positions on-the-go with
+              responsive design
+            </li>
+          </ul>
+
+          <h2>Security Considerations</h2>
+          <ul>
+            <li>
+              <strong>Read-Only Operations:</strong> Dashboard only reads data,
+              never executes transactions
+            </li>
+            <li>
+              <strong>No Private Keys:</strong> Wallet connection handled by
+              secure providers like MetaMask
+            </li>
+            <li>
+              <strong>Client-Side Only:</strong> No backend means no centralized
+              data storage
+            </li>
+            <li>
+              <strong>Open Source:</strong> Code is public for auditing and
+              transparency
+            </li>
+          </ul>
+
+          <h2>Future Vision</h2>
+          <p>
+            The long-term goal is to create the definitive portfolio management
+            tool for Base, featuring:
+          </p>
+          <ul>
+            <li>AI-powered insights for portfolio optimization</li>
+            <li>Historical performance analytics with charts</li>
+            <li>Cross-protocol yield comparison</li>
+            <li>Automated rebalancing suggestions</li>
+            <li>Tax reporting and transaction export</li>
+            <li>Social features to compare with other users (anonymously)</li>
+          </ul>
+
+          <h2>DeFi Concepts Explained</h2>
+          <h3>Lending & Borrowing</h3>
+          <p>
+            Supply assets to earn yield, or borrow assets by providing
+            collateral. Interest rates are typically determined algorithmically
+            based on supply and demand.
+          </p>
+
+          <h3>Health Factor</h3>
+          <p>
+            Ratio indicating how safe your borrowed position is. Higher is
+            safer. If it drops below 1.0, your collateral may be liquidated to
+            repay the loan.
+          </p>
+
+          <h3>APY (Annual Percentage Yield)</h3>
+          <p>
+            The yearly rate of return, including compound interest. Used to
+            compare different yield-earning opportunities.
+          </p>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/UsmanT12/base-yield-dashboard"
+              target="_blank"
+              class="github-link-large"
+              >Explore the Code on GitHub ↗</a
+            >
+          </div>
+        </div>
+
+        <div class="navigation-links">
+          <a href="base-defi-leaderboard.html" class="back-link"
+            >← Previous: DeFi Leaderboard</a
+          >
+          <a href="blockchain-excursion.html" class="next-link"
+            >Back to Blockchain Excursion Overview →</a
+          >
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      © 2025 My Personal Website | All Rights Reserved
+    </footer>
+  </body>
+</html>

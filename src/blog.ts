@@ -11,6 +11,15 @@ type Blog = {
 // 2️⃣ Create your list of blog entries
 const blogs: Blog[] = [
   {
+    title: "Blockchain Excursion",
+    date: "November 5, 2025",
+    description:
+      "Exploring three full-stack blockchain projects on the Base network: real-time transaction visualization, DeFi leaderboards, and yield dashboards.",
+    image: "https://via.placeholder.com/600x400/003366/ffffff?text=Blockchain",
+    imageAlt: "Blockchain projects showcase",
+    slug: "blockchain-excursion",
+  },
+  {
     title: "Understanding TypeScript",
     date: "October 26, 2025",
     description: "A beginner-friendly dive into TypeScript and static typing.",

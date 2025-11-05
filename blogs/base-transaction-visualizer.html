@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base Transaction Visualizer</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <h1 class="logo"><a href="../index.html">personal website</a></h1>
+      <ul class="nav-list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../portfolio.html">Portfolio</a></li>
+        <li><a href="../resume.html">Resume</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <article class="blog-post">
+        <h1 class="page-title">Base Transaction Visualizer</h1>
+        <p class="blog-date">
+          <em>Part of Blockchain Excursion | November 5, 2025</em>
+        </p>
+
+        <div class="github-badge">
+          <a
+            href="https://github.com/UsmanT12/Base-Transaction-Visualizer"
+            target="_blank"
+            class="github-link-large"
+            >View Project on GitHub ↗</a
+          >
+        </div>
+
+        <div class="blog-content">
+          <h2>What It Does</h2>
+          <p>
+            A real-time web application that visualizes live blocks and
+            transactions on the BASE network (Layer 2). The app displays:
+          </p>
+          <ul>
+            <li>Block numbers and timestamps</li>
+            <li>Number of transactions per block</li>
+            <li>Gas usage and gas limits</li>
+            <li>Transaction hashes with explorer links</li>
+            <li>Network metrics (TPS, block time, utilization)</li>
+          </ul>
+
+          <h2>Key Features</h2>
+          <ul>
+            <li>
+              <strong>Dual Network Support:</strong> Simultaneously supports
+              Base Mainnet and Sepolia Testnet with instant switching
+            </li>
+            <li>
+              <strong>Smart Caching:</strong> Caches up to 20 blocks per network
+              for instant switching without lag
+            </li>
+            <li>
+              <strong>Real-time Metrics:</strong> Shows TPS (transactions per
+              second), block time, and network utilization
+            </li>
+            <li>
+              <strong>Interactive Controls:</strong> Slider to adjust visible
+              blocks (2-20), pause/resume live feed
+            </li>
+            <li>
+              <strong>Explorer Integration:</strong> Transaction hashes link
+              directly to block explorer
+            </li>
+          </ul>
+
+          <h2>Tech Stack</h2>
+          <h3>Frontend Framework</h3>
+          <ul>
+            <li>
+              <strong>Next.js 14:</strong> Using the App Router for modern React
+              development
+            </li>
+            <li>
+              <strong>TypeScript:</strong> Type-safe development throughout
+            </li>
+            <li>
+              <strong>Tailwind CSS:</strong> Utility-first styling for
+              responsive design
+            </li>
+          </ul>
+
+          <h3>Blockchain Integration</h3>
+          <ul>
+            <li>
+              <strong>ethers.js v6:</strong> Primary SDK for blockchain
+              interaction
+            </li>
+            <li>
+              <strong>JSON-RPC:</strong> Direct connection to Base network
+              endpoints
+            </li>
+            <li>
+              <strong>Network RPCs:</strong>
+              <ul>
+                <li>Mainnet: <code>https://mainnet.base.org</code></li>
+                <li>Sepolia Testnet: <code>https://sepolia.base.org</code></li>
+              </ul>
+            </li>
+          </ul>
+
+          <h2>Architecture & Data Flow</h2>
+          <h3>Connection Management</h3>
+          <p>
+            The application maintains two persistent RPC provider connections —
+            one for mainnet and one for testnet. This dual-connection approach
+            enables instant network switching without reconnection delays.
+          </p>
+
+          <h3>Polling Strategy</h3>
+          <p>
+            Every ~2 seconds, the app polls both networks for new blocks. This
+            polling interval balances real-time updates with performance
+            considerations.
+          </p>
+
+          <h3>Caching System</h3>
+          <p>
+            The most recent ~20 blocks per network are cached in memory. This
+            allows users to switch networks instantly and view historical data
+            without waiting for new API calls.
+          </p>
+
+          <h3>Data Extraction</h3>
+          <p>For each block, the system extracts:</p>
+          <ul>
+            <li>Block number (height in the blockchain)</li>
+            <li>Timestamp (when the block was mined)</li>
+            <li>Gas used vs. gas limit</li>
+            <li>Transaction count</li>
+            <li>Individual transaction hashes</li>
+          </ul>
+
+          <h2>UI Components</h2>
+          <h3>BlockCard.tsx</h3>
+          <p>
+            Displays individual block information in a card format. Shows key
+            metrics like block number, timestamp, gas usage, and transaction
+            count.
+          </p>
+
+          <h3>TxList.tsx</h3>
+          <p>
+            Lists recent transaction hashes from the selected blocks. Each hash
+            is clickable and links to the corresponding transaction on the Base
+            block explorer.
+          </p>
+
+          <h3>GasChart.tsx</h3>
+          <p>
+            Visualizes gas usage patterns across visible blocks. Helps identify
+            network congestion and usage trends over time.
+          </p>
+
+          <h2>User Interface Features</h2>
+          <ul>
+            <li>
+              <strong>Block Slider:</strong> Adjust how many blocks to display
+              (2-20 range)
+            </li>
+            <li>
+              <strong>Pause/Resume:</strong> Control the live data feed to
+              examine specific blocks
+            </li>
+            <li>
+              <strong>Network Toggle:</strong> Instant switching between mainnet
+              and testnet
+            </li>
+            <li>
+              <strong>Transaction Links:</strong> Direct links to block explorer
+              for detailed transaction info
+            </li>
+            <li>
+              <strong>Responsive Design:</strong> Works seamlessly on desktop
+              and mobile devices
+            </li>
+          </ul>
+
+          <h2>Lay-Person Explanation</h2>
+          <p>
+            Imagine you're looking live at a highway of blockchain activity.
+            Every "block" is like a batch of cars passing through toll booths.
+            This app shows you in real time:
+          </p>
+          <ul>
+            <li>How many "cars" (transactions) passed</li>
+            <li>How "busy" the freeway is (gas usage)</li>
+            <li>How fast blocks are being produced</li>
+          </ul>
+          <p>
+            You can switch between the "real highway" (mainnet) and a "test
+            track" (testnet) instantly. It's entirely read-only — you're just
+            watching, not controlling anything — and it's optimized specifically
+            for the Base network.
+          </p>
+
+          <h2>Technical Highlights</h2>
+          <h3>Performance Optimization</h3>
+          <ul>
+            <li>
+              <strong>Efficient Polling:</strong> Balanced update frequency to
+              minimize RPC calls while maintaining real-time feel
+            </li>
+            <li>
+              <strong>Smart Caching:</strong> Prevents redundant API calls when
+              switching networks or adjusting view
+            </li>
+            <li>
+              <strong>Lazy Loading:</strong> Components render only visible data
+              for better performance
+            </li>
+          </ul>
+
+          <h3>Code Quality</h3>
+          <ul>
+            <li>TypeScript throughout for type safety</li>
+            <li>Component-based architecture for maintainability</li>
+            <li>Separation of concerns (UI, data fetching, caching)</li>
+            <li>Error handling for network issues and RPC failures</li>
+          </ul>
+
+          <h2>Why This Project Matters</h2>
+          <ul>
+            <li>
+              <strong>Real blockchain interaction:</strong> Demonstrates ability
+              to work with actual blockchain networks via JSON-RPC
+            </li>
+            <li>
+              <strong>Performance engineering:</strong> Shows understanding of
+              caching, polling, and optimization strategies
+            </li>
+            <li>
+              <strong>Modern web stack:</strong> Combines Next.js 14,
+              TypeScript, and Tailwind with blockchain SDKs
+            </li>
+            <li>
+              <strong>User experience:</strong> Creates an intuitive interface
+              for complex blockchain data
+            </li>
+            <li>
+              <strong>Base ecosystem:</strong> Specialized knowledge of Layer 2
+              scaling solutions
+            </li>
+          </ul>
+
+          <h2>Future Enhancements</h2>
+          <ul>
+            <li>Add support for additional Layer 2 networks</li>
+            <li>Implement WebSocket connections for true real-time updates</li>
+            <li>Add filtering by transaction type or gas price</li>
+            <li>Include historical data analysis and trends</li>
+            <li>Add alerts for specific network conditions</li>
+          </ul>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/UsmanT12/Base-Transaction-Visualizer"
+              target="_blank"
+              class="github-link-large"
+              >Explore the Code on GitHub ↗</a
+            >
+          </div>
+        </div>
+
+        <div class="navigation-links">
+          <a href="blockchain-excursion.html" class="back-link"
+            >← Back to Blockchain Excursion</a
+          >
+          <a href="base-defi-leaderboard.html" class="next-link"
+            >Next Project: DeFi Leaderboard →</a
+          >
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      © 2025 My Personal Website | All Rights Reserved
+    </footer>
+  </body>
+</html>

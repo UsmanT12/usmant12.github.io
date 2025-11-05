@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base DeFi Leaderboard</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <h1 class="logo"><a href="../index.html">personal website</a></h1>
+      <ul class="nav-list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../portfolio.html">Portfolio</a></li>
+        <li><a href="../resume.html">Resume</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <article class="blog-post">
+        <h1 class="page-title">Base DeFi Leaderboard</h1>
+        <p class="blog-date">
+          <em>Part of Blockchain Excursion | November 5, 2025</em>
+        </p>
+
+        <div class="github-badge">
+          <a
+            href="https://github.com/UsmanT12/base-defi-leaderboard"
+            target="_blank"
+            class="github-link-large"
+            >View Project on GitHub ↗</a
+          >
+        </div>
+
+        <div class="blog-content">
+          <h2>What It Does</h2>
+          <p>
+            A live leaderboard web application that displays the top liquidity
+            pools (ranked by Total Value Locked — TVL) for the Aerodrome Finance
+            decentralized exchange (DEX) on the Base blockchain.
+          </p>
+
+          <p>The application provides:</p>
+          <ul>
+            <li>Real-time TVL data for top liquidity pools</li>
+            <li>Summary statistics (total liquidity, number of pools)</li>
+            <li>Direct links to pool contracts on block explorer</li>
+            <li>Dark mode UI with responsive design</li>
+            <li>Token pair information for each pool</li>
+          </ul>
+
+          <h2>Key Features</h2>
+          <ul>
+            <li>
+              <strong>Live Data:</strong> Fetches real-time pool data using The
+              Graph's GraphQL API
+            </li>
+            <li>
+              <strong>Ranked Display:</strong> Pools sorted by TVL (Total Value
+              Locked) in descending order
+            </li>
+            <li>
+              <strong>Network Insights:</strong> Shows total ecosystem liquidity
+              and pool count
+            </li>
+            <li>
+              <strong>Explorer Integration:</strong> Direct links to view pool
+              contracts
+            </li>
+            <li>
+              <strong>Modern UI:</strong> Dark mode interface built with
+              Tailwind CSS
+            </li>
+            <li>
+              <strong>Customizable:</strong> Easy to adapt for different DEXs by
+              changing the subgraph
+            </li>
+          </ul>
+
+          <h2>Tech Stack</h2>
+          <h3>Frontend</h3>
+          <ul>
+            <li>
+              <strong>Next.js 14:</strong> React framework with App Router
+            </li>
+            <li><strong>TypeScript:</strong> Type-safe development</li>
+            <li>
+              <strong>Tailwind CSS:</strong> Utility-first styling framework
+            </li>
+          </ul>
+
+          <h3>Data Source</h3>
+          <ul>
+            <li>
+              <strong>The Graph:</strong> Decentralized protocol for indexing
+              and querying blockchain data
+            </li>
+            <li>
+              <strong>GraphQL:</strong> Query language for efficient data
+              fetching
+            </li>
+            <li>
+              <strong>Aerodrome Finance Subgraph:</strong> Specific subgraph for
+              Aerodrome DEX on Base
+            </li>
+          </ul>
+
+          <h2>Project Structure</h2>
+          <h3>Pages Directory</h3>
+          <ul>
+            <li>
+              <code>_app.tsx</code> - Application wrapper, sets up global styles
+              and providers
+            </li>
+            <li>
+              <code>index.tsx</code> - Main leaderboard page, renders pool data
+            </li>
+          </ul>
+
+          <h3>Utils Directory</h3>
+          <ul>
+            <li>
+              <code>fetchGraph.ts</code> - Utility function for executing
+              GraphQL queries against The Graph
+            </li>
+          </ul>
+
+          <h3>Configuration</h3>
+          <ul>
+            <li>
+              <code>.env.local</code> - Stores environment variables like
+              <code>NEXT_PUBLIC_GRAPH_API_KEY</code>
+            </li>
+          </ul>
+
+          <h2>GraphQL Query</h2>
+          <p>The application uses a GraphQL query to fetch pool data:</p>
+          <pre><code>{
+  pools(first: 10, orderBy: totalValueLockedUSD, orderDirection: desc) {
+    id
+    token0 { symbol }
+    token1 { symbol }
+    totalValueLockedUSD
+    liquidity
+  }
+}</code></pre>
+
+          <p>This query:</p>
+          <ul>
+            <li>Fetches the top 10 pools</li>
+            <li>
+              Orders by <code>totalValueLockedUSD</code> in descending order
+            </li>
+            <li>Returns pool ID, token symbols, TVL, and liquidity metrics</li>
+          </ul>
+
+          <h2>Architecture & Data Flow</h2>
+          <h3>1. Data Fetching</h3>
+          <p>
+            When the page loads, <code>fetchGraph.ts</code> sends a GraphQL
+            query to The Graph's API endpoint for the Aerodrome Finance
+            subgraph.
+          </p>
+
+          <h3>2. Data Processing</h3>
+          <p>
+            The returned data is processed and formatted in the React component.
+            Values are converted to user-friendly formats (e.g., currency
+            formatting for TVL).
+          </p>
+
+          <h3>3. Rendering</h3>
+          <p>
+            Pool data is rendered in a responsive grid layout, with each pool
+            displayed in a card showing:
+          </p>
+          <ul>
+            <li>Token pair (e.g., ETH/USDC)</li>
+            <li>Total Value Locked in USD</li>
+            <li>Liquidity amount</li>
+            <li>Link to pool contract</li>
+          </ul>
+
+          <h3>4. Real-time Updates</h3>
+          <p>
+            The Graph indexer constantly updates the subgraph as new blocks are
+            mined on Base, ensuring the leaderboard reflects current on-chain
+            state.
+          </p>
+
+          <h2>Customization</h2>
+          <p>
+            The app can be easily adapted to different DEXs by updating the
+            subgraph ID in <code>utils/fetchGraph.ts</code>. This makes it a
+            versatile template for DeFi analytics on any protocol indexed by The
+            Graph.
+          </p>
+
+          <h2>Lay-Person Explanation</h2>
+          <p>
+            This app is like a scoreboard for the "money pools" in the DeFi
+            ecosystem on Base. These pools are places where people lock up funds
+            (liquidity) so that others can trade, borrow, or lend.
+          </p>
+
+          <p>The app:</p>
+          <ul>
+            <li>
+              Fetches live data to rank the biggest pools by how much value they
+              hold
+            </li>
+            <li>Shows you which tokens are in each pool</li>
+            <li>Displays total ecosystem metrics</li>
+            <li>Lets you click through to explore further on the blockchain</li>
+          </ul>
+
+          <p>
+            Think of it as "Top 10 biggest bank vaults on Base right now" —
+            except these vaults are decentralized liquidity pools that power
+            DeFi trading and lending.
+          </p>
+
+          <h2>Technical Highlights</h2>
+          <h3>The Graph Integration</h3>
+          <p>
+            Using The Graph demonstrates understanding of decentralized data
+            indexing. Rather than directly querying smart contracts (which would
+            be slow and expensive), The Graph provides a fast, indexed GraphQL
+            API for blockchain data.
+          </p>
+
+          <h3>GraphQL Efficiency</h3>
+          <p>
+            GraphQL allows fetching exactly the data needed in a single request,
+            reducing API calls and improving performance compared to REST APIs.
+          </p>
+
+          <h3>Separation of Concerns</h3>
+          <ul>
+            <li>Data fetching logic isolated in utilities</li>
+            <li>UI components separate from business logic</li>
+            <li>Environment configuration externalized</li>
+          </ul>
+
+          <h2>Why This Project Matters</h2>
+          <ul>
+            <li>
+              <strong>DeFi Analytics:</strong> Shows ability to build real-world
+              DeFi tools that users need
+            </li>
+            <li>
+              <strong>The Graph Expertise:</strong> Demonstrates knowledge of
+              decentralized data infrastructure
+            </li>
+            <li>
+              <strong>GraphQL Proficiency:</strong> Modern API query patterns
+              for efficient data fetching
+            </li>
+            <li>
+              <strong>Base Ecosystem:</strong> Deep dive into Layer 2 DeFi
+              protocols
+            </li>
+            <li>
+              <strong>Scalable Architecture:</strong> Easy to adapt for
+              different protocols and chains
+            </li>
+          </ul>
+
+          <h2>Use Cases</h2>
+          <ul>
+            <li>
+              <strong>Liquidity Providers:</strong> Find the most attractive
+              pools to provide liquidity
+            </li>
+            <li>
+              <strong>Traders:</strong> Identify pools with deep liquidity for
+              better trade execution
+            </li>
+            <li>
+              <strong>Researchers:</strong> Analyze DeFi liquidity distribution
+              on Base
+            </li>
+            <li>
+              <strong>Protocol Teams:</strong> Monitor their pools' TVL rankings
+            </li>
+          </ul>
+
+          <h2>Future Enhancements</h2>
+          <ul>
+            <li>
+              Add historical TVL charts to show liquidity trends over time
+            </li>
+            <li>Include APY (Annual Percentage Yield) data for each pool</li>
+            <li>Add filtering by token or minimum TVL threshold</li>
+            <li>Expand to multiple DEXs on Base for comparison</li>
+            <li>Add alerts for significant TVL changes</li>
+            <li>Include impermanent loss calculators</li>
+          </ul>
+
+          <h2>DeFi Concepts Explained</h2>
+          <h3>Total Value Locked (TVL)</h3>
+          <p>
+            The total dollar value of assets locked in a liquidity pool. Higher
+            TVL typically means:
+          </p>
+          <ul>
+            <li>More liquidity for trades (less slippage)</li>
+            <li>Greater trust in the pool</li>
+            <li>More active protocol usage</li>
+          </ul>
+
+          <h3>Liquidity Pools</h3>
+          <p>
+            Smart contracts that hold token pairs, allowing users to trade
+            between them. Liquidity providers deposit tokens and earn fees from
+            trades.
+          </p>
+
+          <h3>DEX (Decentralized Exchange)</h3>
+          <p>
+            A platform for trading cryptocurrencies without a central authority.
+            Uses smart contracts and liquidity pools instead of traditional
+            order books.
+          </p>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/UsmanT12/base-defi-leaderboard"
+              target="_blank"
+              class="github-link-large"
+              >Explore the Code on GitHub ↗</a
+            >
+          </div>
+        </div>
+
+        <div class="navigation-links">
+          <a href="base-transaction-visualizer.html" class="back-link"
+            >← Previous: Transaction Visualizer</a
+          >
+          <a href="base-yield-dashboard.html" class="next-link"
+            >Next Project: Yield Dashboard →</a
+          >
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      © 2025 My Personal Website | All Rights Reserved
+    </footer>
+  </body>
+</html>

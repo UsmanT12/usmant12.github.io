@@ -220,6 +220,44 @@ main {
 }
 
 /* =============== CONTACT PAGE =============== */
+.contact-info {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.contact-intro {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  color: #333;
+}
+
+.contact-item {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.contact-item strong {
+  display: block;
+  color: #003366;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.contact-item a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.contact-item a:hover {
+  color: #003366;
+  text-decoration: underline;
+}
+
+/* =============== OLD FORM STYLES (kept for backward compatibility) =============== */
 form {
   max-width: 500px;
   margin: 0 auto;
@@ -458,4 +496,126 @@ a:hover {
 
 .back-link:hover {
   color: #0077cc;
+}
+
+/* =============== BLOCKCHAIN PROJECT STYLES =============== */
+
+.project-card {
+  border: 2px solid #003366;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: #f9f9f9;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 51, 102, 0.15);
+}
+
+.project-card h3 {
+  color: #003366;
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+}
+
+.project-link {
+  display: inline-block;
+  margin-right: 1.5rem;
+  margin-top: 1rem;
+  color: #003366;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-link:hover {
+  color: #0077cc;
+}
+
+.github-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #0077cc;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.github-link:hover {
+  color: #003366;
+}
+
+.github-badge {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #003366 0%, #0055aa 100%);
+  border-radius: 10px;
+}
+
+.github-link-large {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: white;
+  color: #003366;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.github-link-large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.navigation-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #ddd;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.next-link {
+  display: inline-block;
+  color: #003366;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  margin-left: auto;
+}
+
+.next-link:hover {
+  color: #0077cc;
+}
+
+.project-links {
+  text-align: center;
+  margin: 3rem 0;
+  padding: 2rem;
+  background-color: #f0f4f8;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .navigation-links {
+    flex-direction: column;
+  }
+
+  .next-link {
+    margin-left: 0;
+  }
+
+  .project-link,
+  .github-link {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
 }
