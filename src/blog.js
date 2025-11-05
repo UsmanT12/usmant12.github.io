@@ -4,7 +4,7 @@ var blogs = [
         title: "Blockchain Excursion",
         date: "November 5, 2025",
         description: "Exploring three full-stack blockchain projects on the Base network: real-time transaction visualization, DeFi leaderboards, and yield dashboards.",
-        image: "https://via.placeholder.com/600x400/003366/ffffff?text=Blockchain",
+        image: "assets/blockchain_excursion.jpg",
         imageAlt: "Blockchain projects showcase",
         slug: "blockchain-excursion",
     },
