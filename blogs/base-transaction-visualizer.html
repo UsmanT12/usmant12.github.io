@@ -146,27 +146,6 @@
             <li>Individual transaction hashes</li>
           </ul>
 
-          <h2>UI Components</h2>
-          <h3>BlockCard.tsx</h3>
-          <p>
-            Displays individual block information in a card format. Shows key
-            metrics like block number, timestamp, gas usage, and transaction
-            count.
-          </p>
-
-          <h3>TxList.tsx</h3>
-          <p>
-            Lists recent transaction hashes from the selected blocks. Each hash
-            is clickable and links to the corresponding transaction on the Base
-            block explorer.
-          </p>
-
-          <h3>GasChart.tsx</h3>
-          <p>
-            Visualizes gas usage patterns across visible blocks. Helps identify
-            network congestion and usage trends over time.
-          </p>
-
           <h2>User Interface Features</h2>
           <ul>
             <li>
@@ -208,64 +187,6 @@
             watching, not controlling anything, and it's optimized specifically
             for the Base network.
           </p>
-
-          <h2>Technical Highlights</h2>
-          <h3>Performance Optimization</h3>
-          <ul>
-            <li>
-              <strong>Efficient Polling:</strong> Balanced update frequency to
-              minimize RPC calls while maintaining real-time feel
-            </li>
-            <li>
-              <strong>Smart Caching:</strong> Prevents redundant API calls when
-              switching networks or adjusting view
-            </li>
-            <li>
-              <strong>Lazy Loading:</strong> Components render only visible data
-              for better performance
-            </li>
-          </ul>
-
-          <h3>Code Quality</h3>
-          <ul>
-            <li>TypeScript throughout for type safety</li>
-            <li>Component-based architecture for maintainability</li>
-            <li>Separation of concerns (UI, data fetching, caching)</li>
-            <li>Error handling for network issues and RPC failures</li>
-          </ul>
-
-          <h2>Why This Project Matters</h2>
-          <ul>
-            <li>
-              <strong>Real blockchain interaction:</strong> Demonstrates ability
-              to work with actual blockchain networks via JSON-RPC
-            </li>
-            <li>
-              <strong>Performance engineering:</strong> Shows understanding of
-              caching, polling, and optimization strategies
-            </li>
-            <li>
-              <strong>Modern web stack:</strong> Combines Next.js 14,
-              TypeScript, and Tailwind with blockchain SDKs
-            </li>
-            <li>
-              <strong>User experience:</strong> Creates an intuitive interface
-              for complex blockchain data
-            </li>
-            <li>
-              <strong>Base ecosystem:</strong> Specialized knowledge of Layer 2
-              scaling solutions
-            </li>
-          </ul>
-
-          <h2>Future Enhancements</h2>
-          <ul>
-            <li>Add support for additional Layer 2 networks</li>
-            <li>Implement WebSocket connections for true real-time updates</li>
-            <li>Add filtering by transaction type or gas price</li>
-            <li>Include historical data analysis and trends</li>
-            <li>Add alerts for specific network conditions</li>
-          </ul>
 
           <div class="project-links">
             <a
